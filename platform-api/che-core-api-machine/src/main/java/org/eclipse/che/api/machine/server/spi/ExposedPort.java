@@ -10,31 +10,20 @@
  *******************************************************************************/
 package org.eclipse.che.api.machine.server.spi;
 
-import java.util.List;
-import java.util.Map;
-
 /**
- * Describe implementation specific properties of machine instance
+ * Describes port binding
  *
- * @author andrew00x
+ * @author Alexander Garagatyi
  */
-public interface InstanceMetadata {
-
-    // TODO add more generic info
-
+public interface ExposedPort {
     /**
-     * Returns instance specific properties
+     *Returns protocol, tcp or udp
      */
-    Map<String, String> getProperties();
+    String getProtocol();
 
-    /** Serializes this {@code ImageMetadata} to JSON format. */
-    String toJson();
+    int getExternalPort();
 
-    /**
-     * Returns exposed ports in format
-     *
-     * 22/tcp  : 23456
-     * 234/udp : 24562
-     */
-    Map<Integer, List<ExposedPort>> getExposedPorts();
+    int getInternalPort();
+
+    String getIp();
 }

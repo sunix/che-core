@@ -112,7 +112,7 @@ public class MachineImpl implements Machine {
         this.state = state;
     }
 
-    synchronized Instance getInstance() {
+    public synchronized Instance getInstance() {
         return instance;
     }
 
